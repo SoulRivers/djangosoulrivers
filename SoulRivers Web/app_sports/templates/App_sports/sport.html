@@ -1,0 +1,25 @@
+{% extends 'app_general/components/base.html' %}
+{% load static %}
+
+{% block site_title %}{{ sport.title }} | {% endblock %}
+
+{% block content %}
+<section class="content-section content-section-single">
+    <div class="content-container">
+        {% if sport is not None %} 
+            <div class="grid ">
+                <img class="image-block" src="{% static sport.image_relative_url %}">
+                <div>
+                    <h3>{{ sport.title }}</h3>
+                    <p>Match Date {{ sport.match_date_time|date:' j N Y ' }}</p>
+                    <p>{{ sport.scoreteamst }} | {{sport.scoreteamnd}} </p>
+                    <p>{{sport.description}}</p>
+                        <a class="button button-primary" href="{%url 'subscription'%}"> ลงทะเบียนเพื่อเป็นสมาชิก </a>
+                </div>
+        {% else %}
+            <p>Match Not Found!!!</p>
+        {%endif%}
+    </div>
+</section>
+
+{%endblock %}

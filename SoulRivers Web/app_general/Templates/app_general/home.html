@@ -1,0 +1,36 @@
+{% extends 'app_general/components/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="home-landing-section">
+    <h1 class="home-landing-text">SoulRiver Page</h1>
+    <h5 class="home-landing-text">For Basketball Sports Lovers</h5>
+
+    <p>
+        <a class="button" href="{%url 'sports'%}">ดูแมทช์ทั้งหมด </a>
+        <a class="button button-primary" href="{%url 'subscription'%}"> ลงทะเบียนเพื่อเป็นสมาชิก </a>
+    </p> 
+</section> 
+<section class="content-section">
+    <div class="content-container text-center">
+        <h4 class="content-title text-center">อธิบายอะไรซักหน่อย</h4>
+        <div class="grid grid-3"> 
+            <div>
+                <img class="image-block" src="{% static 'app_general/home-about-1-1.jpg' %}"> 
+                <p>SoulRiversWeb คือ เว็ปไซต์เกี่ยวกับกีฬาบาสเกตบอล ที่จะบอกผลของกีฬาบาสเก็ตบอลระดับโลกหรือ NBA </p>
+            </div>
+            <div>
+                <img class="image-block" src="{% static 'app_general/home-about-2-1.jpg' %}">
+                <p>ขอให้เพลิดเพลินในการรับชมเว็ปไซต์ ขอบคุณ. </p>
+            </div>
+            <div>
+                <img class="image-block" src="{% static 'app_general/home-about-3-1.jpg' %}">
+                <p>SoulRiversWeb is a website about basketball That will tell you the results of world-class basketball or NBA. </p>
+            </div>  
+        </div>
+        <p class="text-center"> 
+            <a class="button" href="{% url 'about' %}">เกี่ยวกับบาสเก็ตบอล</a>
+        </p>
+    </div>
+</section>
+{%endblock %}

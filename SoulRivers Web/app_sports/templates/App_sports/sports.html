@@ -1,0 +1,30 @@
+{% extends 'app_general/components/base.html' %}
+{% load static %}
+
+{% block site_title %}Basketball | {% endblock %}
+
+{% block content %}
+<section class="content-section content-section-single">
+    <div class="content-container">
+        <h2 class="content-title">Basketball Match</h2>
+        {% if sports.count > 0 %}
+            <div class="grid grid-3">
+                {%for sport in sports %}
+                    <div>
+                        <a href="{%url 'sport' sport.id %}">
+                            <img class="image-block" src="{% static sport.image_relative_url %}">
+                        </a>
+                        <h5 class="sport-title">
+                            <a href="{% url 'sport' sport.id %}">{{ sport.title }}</a>
+                        </h5> 
+                        <p>{{ sport.scoreteamst }} | {{sport.scoreteamnd}}</p>
+                        <p>Match Date {{ sport.match_date_time|date:' j N Y ' }}</p>
+                    </div>
+                {%endfor%}    
+            </div>
+        {%else%}
+            <p> No Content For Now </p>
+        {%endif%}
+        
+</section>
+{%endblock %}
